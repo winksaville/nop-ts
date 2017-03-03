@@ -1,11 +1,11 @@
-# nop-ts
+# nop-ts [![Build Status](https://travis-ci.org/winksaville/nop-ts.svg?branch=master)](https://travis-ci.org/winksaville/nop-ts)
 An isomorphic module written in TypeScript with a single function
 which does nothing, nop()
 
 ## License
-The Unlicense, you may do anything without restriction
-with this code. As stated in the LICENSE file there
-is absolutely NO waranty of any shape or form.
+This is licened under the Unlicense, another words you may do
+anything without restriction with this code. But as stated in
+the LICENSE file there is absolutely NO warranty of any kind.
 
 ## Preinstalled dependencies
 - node
