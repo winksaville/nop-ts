@@ -6,6 +6,10 @@
   "main": "./dist/nop.js",
   "types": "./dist/nop.d.ts",
   "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/winksaville/nop-ts"
+  },
   "scripts": {
     "build": "tsc -p src/tsconfig.json",
     "pretest": "yarn build && tsc -p test/tsconfig.json",
