@@ -6,6 +6,7 @@
     "outDir": "../build"
   },
   "files": [
-    "test.ts"
+    "test.ts",
+    "client.ts"
   ]
 }
