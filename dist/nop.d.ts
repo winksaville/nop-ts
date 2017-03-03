@@ -1,4 +1,5 @@
 /**
  * No operation
  */
-export default function nop(): void;
+declare function nop(): void;
+export = nop;
