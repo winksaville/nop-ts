@@ -1,0 +1,23 @@
+{
+  "name": "nop-ts",
+  "author": "Wink Saville",
+  "version": "0.1.0",
+  "private": false,
+  "main": "./dist/nop.js",
+  "types": "./dist/nop.d.ts",
+  "license": "Unlicense",
+  "scripts": {
+    "build": "tsc -p src/tsconfig.json",
+    "pretest": "yarn build && tsc -p test/tsconfig.json",
+    "test": "alsatian build/test.js"
+  },
+  "keywords": [
+    "nop",
+    "noop",
+    "no-op"
+  ],
+  "devDependencies": {
+    "alsatian": "^1.2.1",
+    "typescript": "^2.2.1"
+  }
+}
