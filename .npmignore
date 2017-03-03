@@ -3,3 +3,6 @@ test/
 build/
 tsconfig.base.json
 yarn.lock
+.travis.yml
+.npmignore
+*.js.map
