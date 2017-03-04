@@ -7,6 +7,7 @@
   },
   "files": [
     "test.ts",
-    "client.ts"
+    "client.ts",
+    "server.ts"
   ]
 }
