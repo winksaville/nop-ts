@@ -12,12 +12,13 @@
   },
   "scripts": {
     "build": "tsc -p src/tsconfig.json",
-
-    "prestart:server": "yarn build && tsc -p test/tsconfig.json && webpack build/client.js build/bundle.js",
-    "start:server": "node build/server.js",
-
-    "pretest": "yarn build && tsc -p test/tsconfig.json",
-    "test": "alsatian build/test.js"
+    "buildtests": "yarn build && tsc -p test/tsconfig.json && webpack build/client.js build/bundle.js",
+    "prestart:server": "yarn buildtests",
+    "start:server": "node build/server.js &",
+    "pretest": "yarn buildtests",
+    "test": "alsatian build/test.js",
+    "pretest:browser": "yarn start:server",
+    "test:browser": "node build/test-web.js"
   },
   "keywords": [
     "nop",
@@ -25,16 +26,15 @@
     "no-op"
   ],
   "devDependencies": {
+    "@types/selenium-webdriver": "^2.53.40",
     "alsatian": "^1.2.1",
-    "jasmine-core": "^2.5.2",
-    "karma": "^1.5.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-jasmine": "^1.1.0",
     "typescript": "^2.2.1",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "selenium-webdriver": "^3.1.0"
   },
   "dependencies": {
     "@types/mithril": "github:spacejack/mithril.d.ts",
+    "debug": "^2.6.1",
     "mithril": "^1.0.1"
   }
 }

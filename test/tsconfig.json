@@ -8,6 +8,7 @@
   "files": [
     "test.ts",
     "client.ts",
-    "server.ts"
+    "server.ts",
+    "test-web.ts"
   ]
 }
