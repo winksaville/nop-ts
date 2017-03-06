@@ -4,8 +4,9 @@
 import {
   //Expect,
   TestFixture,
-  SetupFixture,
-  Test
+  AsyncSetupFixture,
+  AsyncTeardownFixture,
+  AsyncTest
 } from 'alsatian';
 
 import {
@@ -16,23 +17,27 @@ import {
 @TestFixture('Browser nop tests')
 export class NopTests {
   private driver: WebDriver;
-  private browserName = 'chromium';
-  //private let By: object;
-  //private let Until: object;
+  private browserName = 'chrome';
 
-  @SetupFixture
-  public setupFixture() {
+  @AsyncSetupFixture
+  public async setupFixture() {
+    // Start the browser we're going to control
     this.driver = new Builder()
         .forBrowser(this.browserName)
         .build();
+
+    // Get the home page
+    await this.driver.get('http:localhost:3000/');
+    console.log('Got the / page');
   }
 
-  @Test('wd: nop')
-  public testWdNop() {
-    console.log('testWdNop: get localhost');
-    this.driver.get('http:localhost:3000/')
-      .then(() => {
-        console.log('Got the / page');
-      });
+  @AsyncTeardownFixture
+  public async teardownFixture() {
+    this.driver.quit();
+  }
+
+  @AsyncTest('wd: nop')
+  public async testWdNop() {
+    console.log('testWdNop: TODO');
   }
 }

@@ -1,6 +1,7 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
+    "target": "es6",
     "allowJs": true,
     "declaration": false,
     "outDir": "../build"

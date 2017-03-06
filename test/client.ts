@@ -2,8 +2,9 @@ import * as m from 'mithril';
 import nop = require('../dist/nop');
 import callNop = require('./callnop');
 
-// To enable debug in the browser use the browser console to set
-// localStorage.debug='my-client'
+// To enable debug in the browser use the browser console to set:
+//   debug.enabled = true
+//   localStorage.debug='my-client'
 const debug = require('debug')('my-client');
 
 function invokeNop() {

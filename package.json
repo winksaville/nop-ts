@@ -18,7 +18,7 @@
     "pretest": "yarn buildtests",
     "test": "alsatian build/test.js",
     "pretest:browser": "yarn start:server",
-    "test:browser": "node build/test-web.js"
+    "test:browser": "alsatian build/test-web.js"
   },
   "keywords": [
     "nop",
@@ -26,6 +26,7 @@
     "no-op"
   ],
   "devDependencies": {
+    "@types/mithril": "github:spacejack/mithril.d.ts",
     "@types/selenium-webdriver": "^2.53.40",
     "alsatian": "^1.2.1",
     "typescript": "^2.2.1",
@@ -33,7 +34,6 @@
     "selenium-webdriver": "^3.1.0"
   },
   "dependencies": {
-    "@types/mithril": "github:spacejack/mithril.d.ts",
     "debug": "^2.6.1",
     "mithril": "^1.0.1"
   }
