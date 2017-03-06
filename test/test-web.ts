@@ -11,6 +11,7 @@ import {
 
 import {
   WebDriver,
+  By,
   Builder
 } from 'selenium-webdriver';
 
@@ -28,16 +29,16 @@ export class NopTests {
 
     // Get the home page
     await this.driver.get('http:localhost:3000/');
-    console.log('Got the / page');
   }
 
   @AsyncTeardownFixture
   public async teardownFixture() {
-    this.driver.quit();
+    await this.driver.quit();
   }
 
   @AsyncTest('wd: nop')
   public async testWdNop() {
-    console.log('testWdNop: TODO');
+    let button = await this.driver.findElement(By.id('invokeNop'));
+    button.click();
   }
 }
