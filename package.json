@@ -16,9 +16,9 @@
     "prestart:server": "yarn buildtests",
     "start:server": "node build/server.js &",
     "pretest": "yarn buildtests",
-    "test": "alsatian build/test.js",
+    "test": "alsatian build/test.js --tap",
     "pretest:browser": "yarn start:server",
-    "test:browser": "alsatian build/test-web.js"
+    "test:browser": "alsatian build/test-web.js --tap"
   },
   "keywords": [
     "nop",
