@@ -36,9 +36,15 @@ export class NopTests {
     await this.driver.quit();
   }
 
-  @AsyncTest('wd: nop')
+  @AsyncTest('wd: nop which is defined in a TS file')
   public async testWdNop() {
     let button = await this.driver.findElement(By.id('invokeNop'));
+    button.click();
+  }
+
+  @AsyncTest('wd: callNop which is defined in a JS file')
+  public async testWdCallNop() {
+    let button = await this.driver.findElement(By.id('invokeCallNop'));
     button.click();
   }
 }
