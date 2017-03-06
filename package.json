@@ -13,11 +13,9 @@
   "scripts": {
     "build": "tsc -p src/tsconfig.json",
     "buildtests": "yarn build && tsc -p test/tsconfig.json && webpack build/client.js build/bundle.js",
-    "prestart:server": "yarn buildtests",
-    "start:server": "node build/server.js &",
     "pretest": "yarn buildtests",
     "test": "alsatian build/test.js --tap",
-    "pretest:browser": "yarn start:server",
+    "pretest:browser": "yarn buildtests",
     "test:browser": "alsatian build/test-web.js --tap"
   },
   "keywords": [

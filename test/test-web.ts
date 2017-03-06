@@ -1,6 +1,11 @@
 /**
  * Test nop module
  */
+
+//const child_process = require('child_process');
+
+import * as child from 'child_process';
+
 import {
   //Expect,
   TestFixture,
@@ -19,6 +24,7 @@ import {
 export class NopTests {
   private driver: WebDriver;
   private browserName = 'chrome';
+  private server: child.ChildProcess;
 
   @AsyncSetupFixture
   public async setupFixture() {
@@ -27,6 +33,9 @@ export class NopTests {
         .forBrowser(this.browserName)
         .build();
 
+    // Start the server
+    this.server = child.exec('node build/server.js');
+
     // Get the home page
     await this.driver.get('http:localhost:3000/');
   }
@@ -34,6 +43,7 @@ export class NopTests {
   @AsyncTeardownFixture
   public async teardownFixture() {
     await this.driver.quit();
+    await this.server.kill();
   }
 
   @AsyncTest('wd: nop which is defined in a TS file')
