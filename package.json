@@ -13,10 +13,10 @@
   "scripts": {
     "build": "tsc -p src/tsconfig.json",
     "buildtests": "yarn build && tsc -p test/tsconfig.json && webpack build/client.js build/bundle.js",
+    "test:node": "alsatian build/test.js --tap",
+    "test:browser": "alsatian build/test-web.js --tap",
     "pretest": "yarn buildtests",
-    "test": "alsatian build/test.js --tap",
-    "pretest:browser": "yarn buildtests",
-    "test:browser": "alsatian build/test-web.js --tap"
+    "test": "yarn test:node & yarn test:browser"
   },
   "keywords": [
     "nop",
