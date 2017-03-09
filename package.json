@@ -18,7 +18,7 @@
     "pretest:travis": "yarn buildtests",
     "test:travis": "yarn test:browser",
     "pretest": "yarn buildtests",
-    "test": "yarn test:node & yarn test:browser"
+    "test": "yarn test:node && yarn test:browser"
   },
   "keywords": [
     "nop",
