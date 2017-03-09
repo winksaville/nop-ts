@@ -28,33 +28,48 @@ export class NopTests {
 
   @AsyncSetupFixture
   public async setupFixture() {
+    console.log('setupFixture:+');
     // Start the browser we're going to control
     this.driver = new Builder()
         .forBrowser(this.browserName)
         .build();
 
+    console.log('setupFixture: 1');
+
     // Start the server
     this.server = child.exec('node build/server.js');
 
+    console.log('setupFixture: 2');
+
     // Get the home page
     await this.driver.get('http:localhost:3000/');
+    console.log('setupFixture:-');
   }
 
   @AsyncTeardownFixture
   public async teardownFixture() {
+    console.log('teardownFixture:+');
     await this.driver.quit();
+    console.log('teardownFixture: 1');
     await this.server.kill();
+    console.log('teardownFixture:-');
   }
 
   @AsyncTest('wd: nop which is defined in a TS file')
   public async testWdNop() {
+    console.log('testWdNop:+');
     let button = await this.driver.findElement(By.id('invokeNop'));
+    console.log('testWdNop: 1');
     button.click();
+    console.log('testWdNop:-');
   }
 
   @AsyncTest('wd: callNop which is defined in a JS file')
   public async testWdCallNop() {
+    console.log('testWdCallNop:+');
     let button = await this.driver.findElement(By.id('invokeCallNop'));
+    console.log('testWdCallNop: 1');
     button.click();
+    console.log('testWdCallNop:-');
   }
 }
