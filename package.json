@@ -16,7 +16,7 @@
     "test:node": "alsatian build/test.js --tap",
     "test:browser": "alsatian build/test-web.js --tap",
     "pretest:travis": "yarn buildtests",
-    "test:travis": "yarn test:node & yarn test:browser",
+    "test:travis": "yarn test:browser",
     "pretest": "yarn buildtests",
     "test": "yarn test:node & yarn test:browser"
   },
