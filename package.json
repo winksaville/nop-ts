@@ -15,8 +15,8 @@
     "buildtests": "yarn build && tsc -p test/tsconfig.json && webpack build/client.js build/bundle.js",
     "test:node": "alsatian build/test.js --tap",
     "test:browser": "alsatian build/test-web.js --tap",
-    "pretest-on-travis": "yarn buildtests",
-    "test-on-travis": "yarn test:node",
+    "pretest:travis": "yarn buildtests",
+    "test:travis": "yarn test:node & yarn test:browser",
     "pretest": "yarn buildtests",
     "test": "yarn test:node & yarn test:browser"
   },

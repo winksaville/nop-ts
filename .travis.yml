@@ -24,4 +24,8 @@ before_script:
   - sleep 3
 
 script:
-  - yarn test-on-travis
+  - echo "path=$PATH"
+  - which google-chrome
+  - which google-chrome-stable
+  - which chromedriver
+  - yarn test:travis
