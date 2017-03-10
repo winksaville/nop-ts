@@ -37,7 +37,16 @@ export class NopTests {
     console.log('setupFixture: 1');
 
     // Start the server
-    this.server = child.exec('node build/server.js');
+    this.server = await child.spawn('node', ['build/server.js']);
+    this.server.stdout.on('data', (data) => {
+                 console.log(`server.stdout: ${data}`);
+    });
+    this.server.stderr.on('data', (data) => {
+                 console.log(`server.stdout: ${data}`);
+    });
+    this.server.on('close', (code) => {
+                 console.log(`server: exited with ${code}`);
+    });
 
     console.log('setupFixture: 2');
 
